@@ -1,11 +1,12 @@
+
 # Show website for Aleksander Gadomski 
 
 It's a website for my friend Aleksander Gadomski made with **Gatsby.js**
 ## Requirements
 
- - [ ] node.js
- - [ ] npm
- - [ ] gatsby-cli
+ - node.js
+ - npm
+ - gatsby-cli
 ## Install
 
     npm install -g gatsby-cli
