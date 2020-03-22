@@ -1,8 +1,20 @@
-import React from "react";
-import { Helmet } from "react-helmet";
+import React from "react"
+import { Helmet } from "react-helmet"
+import { StaticQuery, graphql } from "gatsby"
 
 const SEO = ({ title, description, keywords, image, url }) => (
-    <>
+  <StaticQuery
+    query={query}
+    render={({
+      file: {
+        childImageSharp: {
+            fixed: {
+                src
+            }
+        }
+      }
+    }) => (
+        <>
         <Helmet title={title}>
             <meta name="description" content={description} />
             <meta name="image" content={image} />
@@ -14,8 +26,24 @@ const SEO = ({ title, description, keywords, image, url }) => (
             <meta name="twitter:title" content={title} />
             <meta name="twitter:description" content={description} />
             <meta name="twitter:image" content={image} />
+            <link rel="shortcut icon" href={src} type="image/png" />
         </Helmet>
-    </>
-);
+        </>
+      )
+    }
+  />
+)
 
 export default SEO;
+
+const query = graphql`
+    query MyQuery {
+        file(name: {eq: "favicon"}) {
+        childImageSharp {
+            fixed(width: 150, height: 150) {
+            src
+            }
+        }
+        }
+    }
+`;
