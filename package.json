@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "alek-gatsby",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "It's a website for my friend Aleksander Gadomski made with Gatsby.js",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Jakub Chmielewski <jakubchmielewski80@gmail.com>",
   "dependencies": {
     "gatsby": "^2.19.45",
     "gatsby-image": "^2.2.44",
