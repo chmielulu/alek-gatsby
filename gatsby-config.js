@@ -17,6 +17,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-layout`,
+    `gatsby-plugin-smoothscroll`,
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
