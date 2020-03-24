@@ -9,6 +9,8 @@ import AboutMe from "../components/AboutMe/AboutMe";
 import WhatIdo from "../components/WhatIdo/WhatIdo";
 import WhyMe from "../components/WhyMe/WhyMe";
 import Reviews from "../components/Reviews/Reviews";
+import Contact from "../components/Contact/Contact";
+import Footer from "../components/Footer/Footer";
 
 const IndexPage = () => (
   <>
@@ -35,7 +37,9 @@ const IndexPage = () => (
       <WhatIdo />
       <WhyMe />
       <Reviews />
+      <Contact />
     </main>
+    <Footer />
   </>
 );
 
