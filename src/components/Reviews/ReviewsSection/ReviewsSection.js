@@ -8,7 +8,7 @@ const backgroundQuery = graphql`
     file(name: {eq: "reviews"}) {
         childImageSharp {
           fluid(maxWidth: 1920, quality: 90, duotone: {
-            highlight: "#f00e2e",
+            highlight: "#f93c40",
             shadow: "#192550"
           }) {
             ...GatsbyImageSharpFluid_withWebp_noBase64
