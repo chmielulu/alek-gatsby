@@ -7,6 +7,8 @@ import Header from '../components/Header/Header';
 import Projects from "../components/Projects/Projects";
 import AboutMe from "../components/AboutMe/AboutMe";
 import WhatIdo from "../components/WhatIdo/WhatIdo";
+import WhyMe from "../components/WhyMe/WhyMe";
+import Reviews from "../components/Reviews/Reviews";
 
 const IndexPage = () => (
   <>
@@ -31,6 +33,8 @@ const IndexPage = () => (
       <Projects />
       <AboutMe />
       <WhatIdo />
+      <WhyMe />
+      <Reviews />
     </main>
   </>
 );

@@ -10,19 +10,13 @@ import "animate.css/animate.min.css";
 
 
 const StyledSection = styled.section`
-    padding: 80px 0 0 0;
-    min-height: 900px;
-    height: calc(100vh - 80px);
-    position: relative;
+    padding: 200px 0 0 0;
 `;
 
 const AboutMeWrapper = styled.div`
-    margin: 10px 0;
+    margin: auto;
+    padding: 200px 0;
     width: 1000px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
     display: flex;
 `;
 
@@ -109,14 +103,14 @@ const AboutMe = () => {
             <Headline>O mnie</Headline>
             <AboutMeWrapper>
                 <ScrollAnimation animateIn='wobble'
-                initiallyVisible={true}>
+                initiallyVisible={true} animateOnce={true}>
                 <PhotoWrapper>
                    <RedCircle />
                    <Photo fixed={fixed} />
                 </PhotoWrapper>
                 </ScrollAnimation>
                 <ScrollAnimation  animateIn='wobble'
-                initiallyVisible={true}>
+                initiallyVisible={true} animateOnce={true}>
                 <ContentWrapper>
                     <ContentHeadline>Aleksander Gadomski</ContentHeadline>
                     <ContentParagraphsWrapper>
