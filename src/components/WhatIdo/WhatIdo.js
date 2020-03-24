@@ -14,9 +14,14 @@ const StyledSection = styled.section`
 `;
 
 const ThingsBackgroud = styled.div`
-    width: 100%;
+    width: 70%;
+    min-width: 900px;
+    max-width: 1400px;
+    margin: auto;
     height: 230px;
-    background: #525252;
+    background: #202020;
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px rgba(32, 32, 32, 0.25);
 `;
 
 const ThingsWrapper = styled.div`
@@ -54,14 +59,14 @@ const Thing = styled.div`
 
 
 const ThingIcon = styled(Icon)`
-    color: #8a8a8a;
+    color: #3e3e3e;
     font-size: 100px;
     margin-top: 20px;
 `;
 
 const ThingText = styled.h3`
     font-size: 22px;
-    color: #525252;
+    color: #202020;
     font-weight: 700;
     max-width: 170px;
     line-height: 27px;

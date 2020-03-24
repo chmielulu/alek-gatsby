@@ -34,6 +34,12 @@ module.exports = {
           },
         ],
       },
-    }
+    },
+    {
+      resolve: 'gatsby-background-image-es5',
+      options: {
+        specialChars: '/:',
+      },
+    },
   ],
 }
