@@ -24,9 +24,36 @@ const NavigationListItem = styled.li`
         background: inherit;
         font-weight: 500;
         outline: none;
+        position: relative;
+        padding-bottom: 6px;
+        overflow: hidden;
 
-        :hover{
-            text-decoration: underline;
+        ::before, ::after{
+            background: #2d2d2d;
+            content: '';
+            width: 50%;
+            height: 1px;
+            position: absolute;
+            bottom: 0;
+            transition: .3s ease-in-out;
+        }
+
+        ::before {
+            left: 0;
+            transform: translateX(-101%);
+        }
+
+        ::after {
+            right: 0;
+            transform: translateX(101%);
+        }
+
+        :hover ::before {
+            transform: translateX(0);
+        }
+
+        :hover ::after {
+            transform: translateX(0);
         }
     }
 `;
@@ -36,19 +63,19 @@ const Navigation = () => (
     <NavigationWrapper>
         <NavigationList>
             <NavigationListItem>
-                <button onClick="">Start</button>
+                <button>Start</button>
             </NavigationListItem>
 
             <NavigationListItem>
-                <button onClick="">Projekty</button>
+                <button>Projekty</button>
             </NavigationListItem>
 
             <NavigationListItem>
-                <button onClick="">O mnie</button>
+                <button>O mnie</button>
             </NavigationListItem>
 
             <NavigationListItem>
-                <button onClick="">Kontakt</button>
+                <button>Kontakt</button>
             </NavigationListItem>
         </NavigationList>
     </NavigationWrapper>

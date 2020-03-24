@@ -18,13 +18,14 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-layout`,
     `gatsby-plugin-smoothscroll`,
+    `gatsby-plugin-scroll-reveal`,
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
         fonts: [
           {
             family: `Montserrat`,
-            variants: [`400`, `500`,`600`, `800`],
+            variants: [`400`, `500`,`600`, `700`, `800`],
             subsets: [`latin-ext`]
           },
           {

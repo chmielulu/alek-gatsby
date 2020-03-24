@@ -66,6 +66,7 @@ const Button = styled.button`
     justify-content: center;
     align-items: center;
     outline: none;
+    color: #2d2d2d;
 
     :hover{
         height: 125px;
