@@ -6,7 +6,7 @@ import "animate.css/animate.min.css";
 
 const Text = styled.h2`
     font-weight: 700;
-    font-size: 30px;
+    font-size: 1.875rem;
     text-transform: uppercase;
     width: 100%;
     text-align: center;

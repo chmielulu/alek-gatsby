@@ -60,12 +60,12 @@ const Thing = styled.div`
 
 const ThingIcon = styled(Icon)`
     color: #3e3e3e;
-    font-size: 100px;
+    font-size: 6.25rem;
     margin-top: 20px;
 `;
 
 const ThingText = styled.h3`
-    font-size: 22px;
+    font-size: 1.375rem;
     color: #202020;
     font-weight: 700;
     max-width: 170px;

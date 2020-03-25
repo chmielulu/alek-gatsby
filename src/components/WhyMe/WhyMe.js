@@ -26,18 +26,18 @@ const WhyMeItem = styled.div`
 `;
 
 const WhyMeItemIcon = styled(Icon)`
-    font-size: 120px;
+    font-size: 7.5rem;
 `;
 
 const WhyMeItemHeadline = styled.h3`
-    font-size: 30px;
+    font-size: 1.875rem;
     text-align: center;
     color: #2c2c2c;
     margin: 20px 0;
 `;
 
 const WhyMeItemText = styled.p`
-    font-size: 20px;
+    font-size: 1.25rem;
     width: 250px;
 `;
 

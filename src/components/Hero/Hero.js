@@ -4,9 +4,10 @@ import { FaCubes } from 'react-icons/fa';
 import { IoIosArrowRoundDown } from 'react-icons/io';
 
 const HeroWrapper = styled.div`
-    width: 850px;
+    min-width: 850px;
     height: 100%;
-    position: relative
+    position: relative;
+    width: 44%;
 `;
 
 const Background = styled.div`
@@ -31,20 +32,20 @@ const HeroHeadline = styled.div`
     transform: translateX(25%);
 
     h1 {
-        font-size: 90px;
+        font-size: 5.625rem;
         color: #2c2c2c;
         line-height: .8;
     }
 
     p{
-        font-size: 70px;
+        font-size: 4.375rem;
         color: #fff;
         font-weight: bold;
     }
 `;
 
 const Cubes = styled(FaCubes)`
-    font-size: 320px;
+    font-size: 20rem;
     color: #fff;
     position: absolute;
     left: 0;
@@ -59,7 +60,7 @@ const Button = styled.button`
     border: none;
     transition: 0.2s;
     position: absolute;
-    font-size: 50px;
+    font-size: 3.125rem;
     right: 6%;
     top: 250px;
     display: flex;
@@ -70,6 +71,10 @@ const Button = styled.button`
 
     :hover{
         height: 125px;
+    }
+
+    :focus {
+        outline: 1px solid #0078FF;
     }
 `;
 

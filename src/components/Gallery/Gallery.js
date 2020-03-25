@@ -9,6 +9,7 @@ import {isWebpSupported} from 'react-image-webp/dist/utils';
 const GalleryWrapper = styled.div`
     margin: 50px auto 0 auto;
     width: 90%;
+    max-width: 1920px;
     column-count: 3;
     column-gap: .5em;
 `;

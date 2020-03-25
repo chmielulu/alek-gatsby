@@ -56,7 +56,7 @@ const ContentHeadline = styled.h3`
     align-items: center;
     font-weight: 700;
     background: #F93C40;
-    font-size: 24px;
+    font-size: 1.5rem;
     color: #fff;
     margin-left: 60px;
     box-shadow: 0px 2px 4px rgba(249, 60, 64, 0.25);
@@ -68,7 +68,7 @@ const ContentParagraphsWrapper = styled.div`
 `;
 
 const ContentParagraph = styled.p`
-    font-size: 20px;
+    font-size: 1.25rem;
     margin-bottom: 20px;
 
     :last-of-type{
@@ -86,12 +86,12 @@ const SocialWrapper = styled.a`
 `;
 
 const SocialIcon = styled(FaFacebookMessenger)`
-    font-size: 30px;
+    font-size: 1.875rem;
     margin-right: 10px;
 `;
 
 const SocialText = styled.span`
-    font-size: 16px;
+    font-size: 1rem;
 `;
 
 

@@ -18,12 +18,20 @@ const GlobalStyle = createGlobalStyle`
   }
   
   p {
-    font-size: 16px;
+    font-size: 1rem;
   }
 
   ul {
     padding: 0;
     margin: 0;
+  }
+
+  html {
+    font-size: 16px;
+
+    @media (min-width: 2200px) {
+      font-size: 22px;
+    }
   }
 `;
 

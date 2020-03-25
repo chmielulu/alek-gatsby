@@ -15,7 +15,7 @@ const Copyright = styled.div`
     width: 454px;
 
     h4 {
-        font-size: 33px;
+        font-size: 2.063rem;
         width: 100%;
         text-transform: uppercase;
         color: #fff;
@@ -41,7 +41,11 @@ const SocialMedia = styled.div`
         margin-right: 15px;
         color: #fff;
         text-decoration: none;
-        font-size: 35px;
+        font-size: 2.188rem;
+
+        :focus {
+            outline: 1px solid #0078FF;
+        }
     }
 `;
 
@@ -56,13 +60,13 @@ const Author = styled.span`
 
 const Footer = () => (
     <StyledFooter>
-        <Copyright>
+        <Copyright data-sal="fade" data-sal-duration="300" data-sal-easing="ease-out-back">
             <h4>Aleksander Gadomski</h4>
             <p>2020 &copy; Wszelkie prawa zastrzeżone</p>
         </Copyright>
-        <SocialMedia>
-            <a href="https://www.instagram.com/aleksandergadomski/"><Icon icon={bxlInstagram} /></a>
-            <a href="https://www.youtube.com/channel/UC1BSR4tO1VEizm4f71aTdKg"><Icon icon={bxlYoutube} /></a>
+        <SocialMedia data-sal="fade" data-sal-duration="300" data-sal-easing="ease-out-back" data-sal-delay="200">
+            <a href="https://www.instagram.com/aleksandergadomski/" target="_blank"><Icon icon={bxlInstagram} /></a>
+            <a href="https://www.youtube.com/channel/UC1BSR4tO1VEizm4f71aTdKg" target="_blank"><Icon icon={bxlYoutube} /></a>
         </SocialMedia>
         <Author>Designed with love by Chmielewski Jakub, my friend :)</Author>
     </StyledFooter>

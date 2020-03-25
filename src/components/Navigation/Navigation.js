@@ -54,6 +54,10 @@ const NavigationListItem = styled.li`
         :hover ::after {
             transform: translateX(0);
         }
+
+        :focus {
+            outline: 1px solid #0078FF;
+        }
     }
 `;
 

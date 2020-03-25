@@ -70,7 +70,7 @@ const ReviewContentWrapper = styled.div`
 `;
 
 const ReviewContentParagraph = styled.p`
-  font-size: 22px;
+  font-size: 1.375rem;
   color: #2c2c2c;
   text-align: justify;
 `;
@@ -78,7 +78,7 @@ const ReviewContentParagraph = styled.p`
 const StyledIcon = styled(Icon)`
   position: absolute;
   color: #2c2c2c;
-  font-size: 18px;
+  font-size: 1.125rem;
 `;
 
 const QuoteLeft = styled(StyledIcon)`

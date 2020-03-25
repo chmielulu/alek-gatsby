@@ -43,6 +43,8 @@ const ReviewsSection = styled(Section)`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-attachment: fixed; 
+  background-position: center; 
 `;
 
 export default ReviewsSection
