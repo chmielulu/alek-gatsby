@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { FaCubes } from 'react-icons/fa';
 import { IoIosArrowRoundDown } from 'react-icons/io';
+import scrollTo from 'gatsby-plugin-smoothscroll';
 
 const HeroWrapper = styled.div`
     min-width: 850px;
@@ -23,6 +24,11 @@ const HeroContentWrapper = styled.div`
     right: 0;
     top: 45%;
     transform: translateY(-50%);
+
+    @media (min-width: 2200px) {
+        width: 1000px;
+        height: 600px;
+    }
 `;
 
 const HeroHeadline = styled.div`
@@ -50,6 +56,14 @@ const Cubes = styled(FaCubes)`
     position: absolute;
     left: 0;
     bottom: 0;
+
+    @media (min-width: 2200px) {
+        left: 50px;
+    }
+
+    @media (min-width: 2400px) {
+        left: 0;
+    }
 `;
 
 const Button = styled.button`
@@ -73,8 +87,14 @@ const Button = styled.button`
         height: 125px;
     }
 
-    :focus {
-        outline: 1px solid #0078FF;
+    @media (min-width: 2200px) {
+        width: 100px;
+        height: 115px;
+        top: 350px;
+
+        :hover {
+            height: 145px;
+        }
     }
 `;
 
@@ -87,7 +107,7 @@ const Hero = () => (
                 <p>z pasją</p>
             </HeroHeadline>
             <Cubes />
-            <Button>
+            <Button onClick={() => scrollTo('#projects')}>
                 <IoIosArrowRoundDown />
             </Button>
         </HeroContentWrapper>

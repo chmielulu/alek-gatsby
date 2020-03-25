@@ -1,11 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
+import scrollTo from 'gatsby-plugin-smoothscroll';
 
 const NavigationWrapper = styled.nav`
     position: absolute;
     right: 40px;
     top: 20px;
     width: 300px;
+
+    @media (min-width: 2200px) {
+        width: 500px;
+        top: 40px;
+    }
 `;
 
 const NavigationList = styled.ul`
@@ -26,6 +33,7 @@ const NavigationListItem = styled.li`
         position: relative;
         padding-bottom: 6px;
         overflow: hidden;
+        font-size: 1rem;
 
         ::before, ::after{
             background: #2d2d2d;
@@ -54,11 +62,12 @@ const NavigationListItem = styled.li`
         :hover ::after {
             transform: translateX(0);
         }
-
-        :focus {
-            outline: 1px solid #0078FF;
-        }
     }
+`;
+
+const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: inherit;
 `;
 
 
@@ -66,19 +75,19 @@ const Navigation = () => (
     <NavigationWrapper>
         <NavigationList>
             <NavigationListItem>
-                <button>Start</button>
+                <button><StyledLink to="/">Start</StyledLink></button>
             </NavigationListItem>
 
             <NavigationListItem>
-                <button>Projekty</button>
+                <button onClick={() => scrollTo('#projects')}>Projekty</button>
             </NavigationListItem>
 
             <NavigationListItem>
-                <button>O mnie</button>
+                <button onClick={() => scrollTo('#aboutMe')}>O mnie</button>
             </NavigationListItem>
 
             <NavigationListItem>
-                <button>Kontakt</button>
+                <button onClick={() => scrollTo('#contact')}>Kontakt</button>
             </NavigationListItem>
         </NavigationList>
     </NavigationWrapper>

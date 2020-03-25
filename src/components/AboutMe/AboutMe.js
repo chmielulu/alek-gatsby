@@ -18,12 +18,21 @@ const AboutMeWrapper = styled.div`
     padding: 200px 0;
     width: 1000px;
     display: flex;
+
+    @media (min-width: 2200px) {
+        width: 1100px;
+    }
 `;
 
 const PhotoWrapper = styled.div`
     width: 400px;
     height: 400px;
     position: relative;
+
+    @media (min-width: 2200px) {
+        width: 500px;
+        height: 500px;
+    }
 `;
 
 const ContentWrapper = styled.div`
@@ -36,6 +45,11 @@ const RedCircle = styled.div`
     height: 300px;
     border-radius: 50%;
     box-shadow: 0px 4px 4px rgba(249, 60, 64, 0.25);
+
+    @media (min-width: 2200px) {
+        width: 400px;
+        height: 400px;
+    }
 `;
 
 const Photo = styled(Image)`
@@ -46,6 +60,11 @@ const Photo = styled(Image)`
     bottom: 0;
     right: 0;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    @media (min-width: 2200px) {
+        width: 415px;
+        height: 415px;
+    }
 `;
 
 const ContentHeadline = styled.h3`
@@ -60,6 +79,11 @@ const ContentHeadline = styled.h3`
     color: #fff;
     margin-left: 60px;
     box-shadow: 0px 2px 4px rgba(249, 60, 64, 0.25);
+
+    @media (min-width: 2200px) {
+        width: 430px!important;
+        height: 57px!important;
+    }
 `;
 
 const ContentParagraphsWrapper = styled.div`
@@ -96,17 +120,17 @@ const SocialText = styled.span`
 
 
 const AboutMe = () => {
-    const {file: {childImageSharp: {fixed}}} = useStaticQuery(photoQuery);
+    const {file: {childImageSharp: {fluid}}} = useStaticQuery(photoQuery);
 
     return (
-        <StyledSection>
+        <StyledSection id="aboutMe">
             <Headline>O mnie</Headline>
             <AboutMeWrapper>
                 <ScrollAnimation animateIn='wobble'
                 initiallyVisible={true} animateOnce={true}>
                 <PhotoWrapper>
                    <RedCircle />
-                   <Photo fixed={fixed} />
+                   <Photo fluid={fluid} />
                 </PhotoWrapper>
                 </ScrollAnimation>
                 <ScrollAnimation  animateIn='wobble'
@@ -119,7 +143,7 @@ const AboutMe = () => {
                         <ContentParagraph>Każdy liść, stara ceglana ściana lub moje porysowane stare okulary są dla mnie referencją. </ContentParagraph>
                         <ContentParagraph>I przyznam, że uwielbiam to robić! </ContentParagraph>
                     </ContentParagraphsWrapper>
-                    <SocialWrapper href="https://m.me/aleksander-gadomski" target="_blank">
+                    <SocialWrapper href="https://m.me/aleksander-gadomski" target="_blank" rel="noopener noreferrer">
                         <SocialIcon></SocialIcon>
                         <SocialText>Skontaktuj się ze mną!</SocialText>
                     </SocialWrapper>
@@ -134,8 +158,8 @@ const photoQuery = graphql`
 {
   file(name: {eq: "myphoto"}) {
     childImageSharp {
-      fixed(width: 315, height: 315, quality: 80) {
-        ...GatsbyImageSharpFixed_withWebp_noBase64
+      fluid(maxWidth: 415, maxHeight: 415, quality: 80) {
+        ...GatsbyImageSharpFluid_withWebp_noBase64
       }
     }
   }

@@ -16,6 +16,10 @@ const WhyMeWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     margin: auto;
+
+    @media (min-width: 2200px) {
+        width: 1400px;
+    }
 `;
 
 const WhyMeItem = styled.div`
@@ -23,6 +27,10 @@ const WhyMeItem = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media (min-width: 2200px) {
+        width: 400px;
+    }
 `;
 
 const WhyMeItemIcon = styled(Icon)`
@@ -39,6 +47,10 @@ const WhyMeItemHeadline = styled.h3`
 const WhyMeItemText = styled.p`
     font-size: 1.25rem;
     width: 250px;
+
+    @media (min-width: 2200px) {
+        width: 350px;
+    }
 `;
 
 const WhyMe = () => (

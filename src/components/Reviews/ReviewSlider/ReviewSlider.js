@@ -8,6 +8,10 @@ const DotsWrapper = styled.div`
     left: 50%;
     transform: translateX(-50%);
 
+
+    @media (min-width: 2200px) {
+        bottom: 40px;
+    }
 `; 
 
 const Dot = styled.span`
@@ -31,6 +35,10 @@ const Dot = styled.span`
         position: absolute;
         transform: translate(-50%, -50%);
         border-radius: 50%;
+    }
+
+    @media (min-width: 2200px) {
+        margin-right: 10px;
     }
 `;
 

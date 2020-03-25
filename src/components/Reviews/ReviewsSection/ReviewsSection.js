@@ -27,7 +27,7 @@ const Section = ({className, children}) => {
           <BackgroundImage
             Tag="section"
             fluid={fluid}
-            backgroundColor={`#000`}
+            backgroundColor={`#202020`}
             className={className}
           >
           {children}
@@ -45,6 +45,10 @@ const ReviewsSection = styled(Section)`
   justify-content: center;
   background-attachment: fixed; 
   background-position: center; 
+
+  @media (min-width: 2200px) {
+    height: 800px;
+  }
 `;
 
 export default ReviewsSection

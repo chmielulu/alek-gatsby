@@ -30,6 +30,10 @@ const Review = styled.div`
   padding: 30px;
   border-radius: 20px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  @media (min-width: 2200px) {
+    width: 1010px;
+  }
 `;
 
 const ReviewPersonWrapper = styled.div`

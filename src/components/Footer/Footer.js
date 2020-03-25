@@ -28,6 +28,10 @@ const Copyright = styled.div`
         text-align: center;
         color: #fff;
     }
+
+    @media (min-width: 2200px) {
+        width: 645px;
+    }
 `;
 
 const SocialMedia = styled.div`
@@ -47,6 +51,10 @@ const SocialMedia = styled.div`
             outline: 1px solid #0078FF;
         }
     }
+
+    @media (min-width: 2200px) {
+        width: 645px;
+    }
 `;
 
 const Author = styled.span`
@@ -65,8 +73,8 @@ const Footer = () => (
             <p>2020 &copy; Wszelkie prawa zastrzeżone</p>
         </Copyright>
         <SocialMedia data-sal="fade" data-sal-duration="300" data-sal-easing="ease-out-back" data-sal-delay="200">
-            <a href="https://www.instagram.com/aleksandergadomski/" target="_blank"><Icon icon={bxlInstagram} /></a>
-            <a href="https://www.youtube.com/channel/UC1BSR4tO1VEizm4f71aTdKg" target="_blank"><Icon icon={bxlYoutube} /></a>
+            <a href="https://www.instagram.com/aleksandergadomski/" target="_blank" rel="noopener noreferrer"><Icon icon={bxlInstagram} /></a>
+            <a href="https://www.youtube.com/channel/UC1BSR4tO1VEizm4f71aTdKg" target="_blank" rel="noopener noreferrer"><Icon icon={bxlYoutube} /></a>
         </SocialMedia>
         <Author>Designed with love by Chmielewski Jakub, my friend :)</Author>
     </StyledFooter>

@@ -13,6 +13,10 @@ const StyledSection = styled.section`
 
 const ContactWrapper = styled.div`
     padding: 200px 0 100px 10%;
+
+    @media (min-width: 2200px) {
+        padding: 400px 0 200px 10%;
+    }
 `;
 
 const ContactItem = styled.div`
@@ -51,6 +55,11 @@ const ContactFormWrapper = styled.div`
         font-size: 1.625rem;
         text-transform: uppercase;
     }
+
+    @media (min-width: 2200px) {
+        width: 550px;
+        height: 600px;
+    }
 `;
 
 const SmallInput = styled.input`
@@ -61,10 +70,16 @@ const SmallInput = styled.input`
     padding: 10px;
     display: block;
     transition: 0.2s;
+    font-size: 0.8rem;
 
     :focus {
         box-shadow: 0px 0px 15px -3px #9e9e9e;
         outline: none;
+    }
+
+    @media (min-width: 2200px) {
+        width: 400px;
+        height: 30px;
     }
 `;
 
@@ -81,10 +96,16 @@ const LargeInput = styled.textarea`
     font-family: 'SF Compact';
     resize: none;
     transition: 0.2s;
+    font-size: 0.8rem;
 
     :focus {
         box-shadow: 0px 0px 15px -3px #9e9e9e;
         outline: none;
+    }
+
+    @media (min-width: 2200px) {
+        width: 450px;
+        height: 200px;
     }
 `;
 
@@ -108,7 +129,7 @@ const Submit = styled.input`
 `;
 
 const Contact = () => (
-    <StyledSection>
+    <StyledSection id="contact">
         <Headline>Kontakt</Headline>
         <ContactWrapper  data-sal="fade" data-sal-easing="ease-out-back" data-sal-duration="300">
             <ContactItem><StyledIconifyIcon icon={sharpAlternateEmail} /> kontakt@aleksandergadomski.pl</ContactItem>
