@@ -34,6 +34,11 @@ const Review = styled.div`
   @media (min-width: 2200px) {
     width: 1010px;
   }
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    width: 350px;
+  }
 `;
 
 const ReviewPersonWrapper = styled.div`
@@ -71,6 +76,10 @@ const ReviewContentWrapper = styled.div`
   padding-left: 30px;
   padding-right: 30px;
   position: relative;
+
+  @media (max-width: 1000px) {
+    margin-top: 20px;
+  }
 `;
 
 const ReviewContentParagraph = styled.p`

@@ -9,13 +9,23 @@ import { FaFacebookMessenger } from 'react-icons/fa';
 const StyledSection = styled.section`
     padding: 80px 0;
     position: relative;
+
+    @media (max-width: 1000px) {
+        padding: 80px 0 0;
+    }
+    
 `;
 
 const ContactWrapper = styled.div`
-    padding: 200px 0 100px 10%;
+    margin: 200px 0 100px 10%;
 
     @media (min-width: 2200px) {
-        padding: 400px 0 200px 10%;
+        margin: 400px 0 200px 10%;
+    }
+
+    @media (max-width: 1000px) {
+        margin: 100px auto -150px auto;
+        width: 320px;
     }
 `;
 
@@ -46,7 +56,7 @@ const ContactFormWrapper = styled.div`
     border-radius: 60px;
     background: #fff;
     bottom: 0;
-    transform: translateY(50%);
+    transform: translate(0, 50%);
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.41);
     padding-top: 50px;
     padding-left: 40px;
@@ -54,11 +64,25 @@ const ContactFormWrapper = styled.div`
     h3 {
         font-size: 1.625rem;
         text-transform: uppercase;
+
+        @media (max-width: 1250px) {
+            font-size: 1.45rem;
+        }
     }
 
     @media (min-width: 2200px) {
         width: 550px;
         height: 600px;
+    }
+
+    @media (max-width: 1250px) {
+        width: 350px;
+        height: 400px;
+    }
+
+    @media (max-width: 1000px) {
+        position: static;
+        margin: auto;
     }
 `;
 
@@ -81,10 +105,19 @@ const SmallInput = styled.input`
         width: 400px;
         height: 30px;
     }
+
+    @media (max-width: 1250px) {
+        width: 220px;
+        height: 15px;
+    }
 `;
 
 const ContactForm = styled.form`
     margin-top: 40px;
+
+    @media (max-width: 1250px) {
+        margin-top: 30px;
+    }
 `;
 
 const LargeInput = styled.textarea`
@@ -106,6 +139,11 @@ const LargeInput = styled.textarea`
     @media (min-width: 2200px) {
         width: 450px;
         height: 200px;
+    }
+
+    @media (max-width: 1250px) {
+        width: 290px;
+        height: 90px;
     }
 `;
 

@@ -9,6 +9,23 @@ const HeroWrapper = styled.div`
     height: 100%;
     position: relative;
     width: 44%;
+
+
+    @media (max-width: 1500px) {
+       min-width: 750px;
+    }
+
+    @media (max-width: 1400px) {
+       min-width: 650px;
+    }
+
+    @media (max-width: 1200px) {
+        min-width: 550px;
+    }
+
+    @media (max-width: 1000px) {
+        width: 100%;
+    }
 `;
 
 const Background = styled.div`
@@ -29,6 +46,20 @@ const HeroContentWrapper = styled.div`
         width: 1000px;
         height: 600px;
     }
+
+    @media (max-width: 1200px) {
+        top: 50%;
+    }
+
+    @media (max-width: 1000px) {
+        width: 100%;
+        height: 100%;
+        transform: none;
+        display: flex;
+        top: 0;
+        justify-content: center;
+        align-items: center;
+    }
 `;
 
 const HeroHeadline = styled.div`
@@ -48,6 +79,12 @@ const HeroHeadline = styled.div`
         color: #fff;
         font-weight: bold;
     }
+
+    @media (max-width: 1000px){
+        margin: 0;
+        transform: translate(0, -30%);
+        width: unset;
+    }
 `;
 
 const Cubes = styled(FaCubes)`
@@ -63,6 +100,15 @@ const Cubes = styled(FaCubes)`
 
     @media (min-width: 2400px) {
         left: 0;
+    }
+
+    @media (max-width: 1400px) {
+        font-size: 18rem;
+        left: 80px;
+    }
+
+    @media (max-width: 1200px) {
+        display: none;
     }
 `;
 
@@ -95,6 +141,12 @@ const Button = styled.button`
         :hover {
             height: 145px;
         }
+    }
+
+    @media (max-width: 1000px) {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 80vh;
     }
 `;
 

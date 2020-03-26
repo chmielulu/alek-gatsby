@@ -12,6 +12,14 @@ const GalleryWrapper = styled.div`
     max-width: 1920px;
     column-count: 3;
     column-gap: .5em;
+
+    @media (max-width: 1200px) {
+        column-count: 2;
+    }
+
+    @media (max-width: 800px) {
+        column-count: 1;
+    }
 `;
 
 const GalleryItem = styled.div`

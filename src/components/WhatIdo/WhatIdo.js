@@ -26,6 +26,10 @@ const ThingsBackgroud = styled.div`
     @media (min-width: 2200px) {
         height: 330px;
     }
+
+    @media (max-width: 1000px) {
+        display: none;
+    }
 `;
 
 const ThingsWrapper = styled.div`
@@ -40,6 +44,15 @@ const ThingsWrapper = styled.div`
 
     @media (min-width: 2200px) {
         height: 465px;
+    }
+
+    @media (max-width: 1000px) {
+        height: unset;
+
+        :first-of-type{
+            margin-top: 150px;
+            margin-bottom: 40px;
+        }
     }
 `;
 
@@ -57,6 +70,16 @@ const ThingsColumn = styled.div`
         width: 985px;
         height: 350px;
     }
+
+    @media (max-width: 1000px) {
+        position: sticky;
+        transform: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        height: unset;
+    }
 `;
 
 const Thing = styled.div`
@@ -72,6 +95,14 @@ const Thing = styled.div`
     @media (min-width: 2200px) {
         width: 300px;
         height: 350px;
+    }
+
+    @media (max-width: 1000px) {
+        margin-top: 40px;
+
+        :first-of-type {
+            margin-top: 0;
+        }
     }
 `;
 

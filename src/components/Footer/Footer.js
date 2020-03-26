@@ -32,6 +32,20 @@ const Copyright = styled.div`
     @media (min-width: 2200px) {
         width: 645px;
     }
+
+    @media (max-width: 1600px) {
+        margin-left: 10%;
+    }
+
+    @media (max-width: 1150px) {
+        margin-left: 5%;
+    }
+
+    @media (max-width: 1000px) {
+        margin: auto;
+        padding-top: 250px;
+        width: 390px;
+    }
 `;
 
 const SocialMedia = styled.div`
@@ -54,6 +68,18 @@ const SocialMedia = styled.div`
 
     @media (min-width: 2200px) {
         width: 645px;
+    }
+
+    @media (max-width: 1600px) {
+        margin-left: 10%;
+    }
+
+    @media (max-width: 1150px) {
+        margin-left: 5%;
+    }
+
+    @media (max-width: 1000px) {
+        margin: 30px auto 0 auto;
     }
 `;
 

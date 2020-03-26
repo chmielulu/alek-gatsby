@@ -49,6 +49,10 @@ const ReviewsSection = styled(Section)`
   @media (min-width: 2200px) {
     height: 800px;
   }
+
+  @media (max-width: 1000px) {
+    height: 700px;
+  }
 `;
 
 export default ReviewsSection

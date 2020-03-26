@@ -20,6 +20,13 @@ const WhyMeWrapper = styled.div`
     @media (min-width: 2200px) {
         width: 1400px;
     }
+
+    @media (max-width: 1200px) {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        padding: 100px 0;
+    }
 `;
 
 const WhyMeItem = styled.div`
@@ -30,6 +37,10 @@ const WhyMeItem = styled.div`
 
     @media (min-width: 2200px) {
         width: 400px;
+    }
+
+    @media (max-width: 1200px) {
+        margin-top: 60px;
     }
 `;
 

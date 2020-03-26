@@ -22,6 +22,13 @@ const AboutMeWrapper = styled.div`
     @media (min-width: 2200px) {
         width: 1100px;
     }
+
+    @media (max-width: 1200px) {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        padding: 100px 0;
+    }
 `;
 
 const PhotoWrapper = styled.div`
@@ -33,10 +40,22 @@ const PhotoWrapper = styled.div`
         width: 500px;
         height: 500px;
     }
+
+    @media (max-width: 1000px) {
+        width: 300px;
+        height: 300px;
 `;
 
 const ContentWrapper = styled.div`
     width: 600px;
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 1200px) {
+        margin-top: 60px;
+        align-items: center;
+    }
+    
 `;
 
 const RedCircle = styled.div`
@@ -50,13 +69,18 @@ const RedCircle = styled.div`
         width: 400px;
         height: 400px;
     }
+    
+    @media (max-width: 1000px) {
+        width: 235px;
+        height: 235px;
+    }
 `;
 
 const Photo = styled(Image)`
     width: 315px;
     height: 315px;
     border-radius: 50%;
-    position: absolute !important; 
+    position: absolute !important;
     bottom: 0;
     right: 0;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -64,6 +88,11 @@ const Photo = styled(Image)`
     @media (min-width: 2200px) {
         width: 415px;
         height: 415px;
+    }
+
+    @media (max-width: 1000px) {
+        width: 250px;
+        height: 250px;
     }
 `;
 
@@ -84,11 +113,19 @@ const ContentHeadline = styled.h3`
         width: 430px!important;
         height: 57px!important;
     }
+
+    @media (max-width: 1000px) {
+        width: 280px!important;
+    }
 `;
 
 const ContentParagraphsWrapper = styled.div`
     max-width: 535px;
     margin: 35px 0 35px 60px;
+
+    @media (max-width: 1000px) {
+        max-width: 400px;
+    }
 `;
 
 const ContentParagraph = styled.p`
@@ -148,7 +185,7 @@ const AboutMe = () => {
                         <SocialText>Skontaktuj się ze mną!</SocialText>
                     </SocialWrapper>
                 </ContentWrapper>
-                </ScrollAnimation>
+              </ScrollAnimation>
             </AboutMeWrapper>
         </StyledSection>
     );
@@ -163,7 +200,7 @@ const photoQuery = graphql`
       }
     }
   }
-}   
+}
 `;
 
 export default AboutMe;

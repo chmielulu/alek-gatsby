@@ -32,6 +32,10 @@ const GlobalStyle = createGlobalStyle`
     @media (min-width: 2200px) {
       font-size: 22px;
     }
+
+    @media (max-width: 1000px) {
+      font-size: 14px;
+    }
   }
 `;
 

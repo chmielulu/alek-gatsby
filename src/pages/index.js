@@ -1,4 +1,5 @@
 import React from "react";
+import CookieConsent from "react-cookie-consent";
 
 import SEO from '../components/SEO/SEO';
 import Navigation from '../components/Navigation/Navigation';
@@ -11,6 +12,7 @@ import WhyMe from "../components/WhyMe/WhyMe";
 import Reviews from "../components/Reviews/Reviews";
 import Contact from "../components/Contact/Contact";
 import Footer from "../components/Footer/Footer";
+import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
 
 const IndexPage = () => (
   <>
@@ -40,6 +42,20 @@ const IndexPage = () => (
       <Contact />
     </main>
     <Footer />
+
+    <CookieConsent
+    location="bottom"
+    buttonText="OK"
+    cookieName="cookiesInfo"
+    style={{ background: "#2a2a2a" }}
+    buttonStyle={{ background: "#f93c40", color: "#fff", fontSize: "13px" }}
+    expires={150}
+    acceptOnScroll={true}
+    acceptOnScrollPercentage={5}
+    >
+    Ta strona korzysta z ciasteczek aby świadczyć usługi na najwyższym poziomie. Dalsze korzystanie ze strony oznacza, że zgadzasz się na ich użycie.{" "}
+    </CookieConsent>
+    <ScrollToTop />
   </>
 );
 
