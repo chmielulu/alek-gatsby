@@ -38,6 +38,11 @@ const Review = styled.div`
   @media (max-width: 1000px) {
     flex-direction: column;
     width: 350px;
+    padding: 30px 20px;
+  }
+
+  @media (max-width: 500px) {
+    width: 250px;
   }
 `;
 
@@ -69,6 +74,10 @@ const ReviewPersonName = styled.h3`
   width: 130%;
   text-align: center;
   position: relative;
+
+  @media (max-width: 1000px) {
+    width: 100%;
+  }
 `;
 
 const ReviewContentWrapper = styled.div`
@@ -79,6 +88,7 @@ const ReviewContentWrapper = styled.div`
 
   @media (max-width: 1000px) {
     margin-top: 20px;
+    margin-left: 0;
   }
 `;
 
@@ -86,6 +96,10 @@ const ReviewContentParagraph = styled.p`
   font-size: 1.375rem;
   color: #2c2c2c;
   text-align: justify;
+
+  @media (max-width: 500px) {
+    font-size: 1rem;
+  }
 `;
 
 const StyledIcon = styled(Icon)`

@@ -46,6 +46,21 @@ const Copyright = styled.div`
         padding-top: 250px;
         width: 390px;
     }
+
+    @media (max-width: 500px) {
+        width: 100%;
+        text-align: center;
+    }
+
+    @media (max-width: 420px) {
+        h4 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            
+        }
+    }
 `;
 
 const SocialMedia = styled.div`
@@ -80,6 +95,10 @@ const SocialMedia = styled.div`
 
     @media (max-width: 1000px) {
         margin: 30px auto 0 auto;
+    }
+
+    @media (max-width: 500px) {
+        width: 100%;
     }
 `;
 

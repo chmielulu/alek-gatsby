@@ -25,6 +25,7 @@ const HeroWrapper = styled.div`
 
     @media (max-width: 1000px) {
         width: 100%;
+        min-width: unset;
     }
 `;
 
@@ -84,6 +85,28 @@ const HeroHeadline = styled.div`
         margin: 0;
         transform: translate(0, -30%);
         width: unset;
+    }
+
+    @media (max-width: 500px) {
+        transform: translate(0);
+
+        h1 {
+            font-size: 4rem;
+        }
+
+        p {
+            font-size: 3rem;
+        }
+    }
+
+    @media (max-width: 350px) {
+        h1 {
+            font-size: 3.5rem;
+        }
+
+        p {
+            font-size: 2.5rem;
+        }
     }
 `;
 
@@ -147,6 +170,16 @@ const Button = styled.button`
         left: 50%;
         transform: translateX(-50%);
         top: 80vh;
+    }
+
+    @media (max-width: 500px) {
+        width: 60px;
+        height: 75px;
+        top: 75vh;
+
+        :hover {
+            height: 95px;
+        }
     }
 `;
 

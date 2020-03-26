@@ -11,6 +11,10 @@ import "animate.css/animate.min.css";
 
 const StyledSection = styled.section`
     padding: 200px 0 0 0;
+
+    @media (max-width: 1000px) {
+        padding: 80px 0;
+    }
 `;
 
 const AboutMeWrapper = styled.div`
@@ -27,7 +31,11 @@ const AboutMeWrapper = styled.div`
         flex-direction: column;
         width: 100%;
         align-items: center;
-        padding: 100px 0;
+        padding: 100px 0 100px 0;
+    }
+
+    @media (max-width: 1000px) {
+       padding: 100px 0 0;
     }
 `;
 
@@ -44,6 +52,7 @@ const PhotoWrapper = styled.div`
     @media (max-width: 1000px) {
         width: 300px;
         height: 300px;
+    }
 `;
 
 const ContentWrapper = styled.div`
@@ -54,6 +63,10 @@ const ContentWrapper = styled.div`
     @media (max-width: 1200px) {
         margin-top: 60px;
         align-items: center;
+    }
+
+    @media (max-width: 650px) {
+        width: 100%;
     }
     
 `;
@@ -117,6 +130,10 @@ const ContentHeadline = styled.h3`
     @media (max-width: 1000px) {
         width: 280px!important;
     }
+
+    @media (max-width: 1200px) {
+        margin: 0;
+    }
 `;
 
 const ContentParagraphsWrapper = styled.div`
@@ -125,6 +142,11 @@ const ContentParagraphsWrapper = styled.div`
 
     @media (max-width: 1000px) {
         max-width: 400px;
+        margin: 35px 0;
+    }
+
+    @media (max-width: 500px) {
+        width: 80%;
     }
 `;
 
@@ -144,6 +166,10 @@ const SocialWrapper = styled.a`
     display: flex;
     align-items: center;
     justify-content: flex-start;
+
+    @media (max-width: 1000px) {
+        margin: 0;
+    }
 `;
 
 const SocialIcon = styled(FaFacebookMessenger)`

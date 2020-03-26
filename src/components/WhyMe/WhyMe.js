@@ -8,6 +8,10 @@ import timerClock from '@iconify/icons-noto/timer-clock';
 
 const StyledSection = styled.section`
     padding: 200px 0 0;
+
+    @media (max-width: 1000px) {
+        padding: 80px 0 0;
+    }
 `;
 
 const WhyMeWrapper = styled.div`
@@ -26,6 +30,11 @@ const WhyMeWrapper = styled.div`
         flex-direction: column;
         align-items: center;
         padding: 100px 0;
+    }
+
+
+    @media (max-width: 1000px) {
+        padding: 80px 0;
     }
 `;
 

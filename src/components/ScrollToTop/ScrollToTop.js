@@ -22,21 +22,40 @@ const StyledAside = styled.aside`
         color: #2d2d2d;
         font-size: 20px;
         transition: .3s;
+        display: none;
+    }
+
+    .visible {
+        display: block;
     }
 `;
 
+const classNm = (visible) => {
+    if(visible) return "visible";
+    return null;
+}
+
 const ScrollToTop = () => {
-    const [hide, setHide] = useState(null);
+    const [visible, setVisible] = useState(false);
+    const [opacity, setOpacity] = useState(100);
 
     useEffect(() => {
-       window.addEventListener("scroll", () => {
-            
-       });
+        if(window.scrollY >= 500) setVisible(true);
+
+        window.addEventListener("scroll", () => {
+            if(window.scrollY >= 500) setVisible(true);
+                else setVisible(false); 
+        });
     });
 
     return (
         <StyledAside>
-            <button onClick={() => scrollTo("body")}><Icon icon={arrowUpAlt2} /></button>
+            <button
+                onClick={() => scrollTo("body")} 
+                className={classNm(visible)} 
+            >
+                <Icon icon={arrowUpAlt2} />
+            </button>
         </StyledAside>
     )
 };

@@ -50,7 +50,7 @@ const ThingsWrapper = styled.div`
         height: unset;
 
         :first-of-type{
-            margin-top: 150px;
+            margin-top: 80px;
             margin-bottom: 40px;
         }
     }

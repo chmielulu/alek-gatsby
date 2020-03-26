@@ -27,6 +27,10 @@ const ContactWrapper = styled.div`
         margin: 100px auto -150px auto;
         width: 320px;
     }
+
+    @media (max-width: 350px) {
+        width: 280px;
+    }
 `;
 
 const ContactItem = styled.div`
@@ -84,6 +88,17 @@ const ContactFormWrapper = styled.div`
         position: static;
         margin: auto;
     }
+
+
+    @media (max-width: 500px) {
+        width: 300px;
+        height: 350px;
+    }
+
+    @media (max-width: 340px) {
+        width: 260px;
+        height: 310px;
+    }
 `;
 
 const SmallInput = styled.input`
@@ -109,6 +124,16 @@ const SmallInput = styled.input`
     @media (max-width: 1250px) {
         width: 220px;
         height: 15px;
+    }
+
+    @media (max-width: 500px) {
+        width: 180px;
+        height: 10px;
+    }
+
+    @media (max-width: 340px) {
+        width: 150px;
+        margin-bottom: 10px;
     }
 `;
 
@@ -145,6 +170,16 @@ const LargeInput = styled.textarea`
         width: 290px;
         height: 90px;
     }
+
+    @media (max-width: 500px) {
+        width: 230px;
+        height: 70px;
+    }
+
+    @media (max-width: 340px) {
+        width: 190px;
+        height: 50px;
+    }
 `;
 
 const Submit = styled.input`
@@ -163,6 +198,12 @@ const Submit = styled.input`
     :focus {
         box-shadow: 0px 0px 15px -3px #9e9e9e;
         outline: none;
+    }
+
+    @media (max-width: 340px) {
+        font-size: 0.8rem;
+        padding: 7px 15px;
+        margin-top: 10px;
     }
 `;
 
