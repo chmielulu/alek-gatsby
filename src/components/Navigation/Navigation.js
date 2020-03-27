@@ -133,6 +133,12 @@ const Navigation = () => {
             if(window.innerWidth <= 1000) setShowMenu(true);
                 else setShowMenu(false);
         });
+
+        if(isActiveMenu){
+            document.querySelector('body').style.overflowY = "hidden";
+        } else {
+            document.querySelector('body').style.overflowY = "";
+        }
     });
     
     const navigationItems = [
@@ -169,11 +175,11 @@ const Navigation = () => {
                     {navigationItems.map(({link, to, description}, index) => {
                         if(link) {
                             return (
-                                <NavigationListItem key={index}><StyledLink to={to}>{description}</StyledLink></NavigationListItem>
+                                <NavigationListItem key={index}><StyledLink to={to}><button>{description}</button></StyledLink></NavigationListItem>
                             )
                         } else {
                             return (
-                                <NavigationListItem onClick={() => scrollTo(to)}>{description}</NavigationListItem>
+                                <NavigationListItem onClick={() => scrollTo(to)}><button>{description}</button></NavigationListItem>
                             )
                         }
                     })}

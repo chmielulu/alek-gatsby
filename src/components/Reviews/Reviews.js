@@ -1,9 +1,8 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import { graphql, useStaticQuery } from 'gatsby';
 import Image from 'gatsby-image';
 import ReviewsSection from './ReviewsSection/ReviewsSection';
-import ReviewSlider from './ReviewSlider/ReviewSlider';
 import { Icon } from '@iconify/react';
 import bxsQuoteAltLeft from '@iconify/icons-bx/bxs-quote-alt-left';
 import bxsQuoteAltRight from '@iconify/icons-bx/bxs-quote-alt-right';
@@ -22,6 +21,81 @@ const personsPhotoQuery = graphql`
 }
 `;
 
+const DotsWrapper = styled.div`
+    display: flex;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+
+    @media (min-width: 2200px) {
+        bottom: 40px;
+    }
+`; 
+
+const Dot = styled.span`
+    display: block;
+    background: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    cursor: pointer;
+
+    ::before {
+        width: 10px;
+        height: 10px;
+        content: '';
+        background: #2c2c2c;
+        left: 50%;
+        top: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        opacity: 0;
+        transition: .3s opacity;
+    }
+
+    &.activeDot ::before {
+      opacity: 1;
+    }
+
+    @media (min-width: 2200px) {
+        margin-right: 10px;
+    }
+`;
+
+const ReviewsSlider = styled.div`
+  position: relative;
+  width: 870px;
+  height: 261px;
+
+  @media (min-width: 2200px) {
+    width: 1070px;
+    height: 282px;
+  }
+
+  @media (max-width: 1000px) {
+    width: 390px;
+    height: 519px;
+  }
+
+  @media (max-width: 500px) {
+    width: 290px;
+    height: 453px;
+  }
+`;
+
+const ReviewsSliderWrapper = styled.div`
+  display: flex;
+  position: absolute;
+  transition: transform 1000ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+`;
+
+
 const Review = styled.div`
   width: 810px;
   align-items: center;
@@ -30,19 +104,34 @@ const Review = styled.div`
   padding: 30px;
   border-radius: 20px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  flex: 1;
+  min-width: 810px;
+  opacity: 0.5;
+  transform: scale(0.8);
+  transition: opacity 1000ms linear, transform 1000ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+  &.activeReview {
+    opacity: 1;
+    transform: scale(1);
+  }
 
   @media (min-width: 2200px) {
     width: 1010px;
+    min-width: 1010px;
   }
 
   @media (max-width: 1000px) {
     flex-direction: column;
     width: 350px;
     padding: 30px 20px;
+    min-width: 350px;
+    justify-content: center;
+    align-items: center;
   }
 
   @media (max-width: 500px) {
     width: 250px;
+    min-width: 250px;
   }
 `;
 
@@ -120,17 +209,31 @@ const QuoteRight = styled(StyledIcon)`
 
 const Reviews = () => {
   const {allFile: {nodes}} = useStaticQuery(personsPhotoQuery);
+  const [property, setProperty] = useState(nodes[0]);
+  
+  let changeReview;
+
+  useEffect(() => {
+    changeReview = setTimeout(() => {
+
+      let indexOfReview = nodes.indexOf(property)
+      
+      if(indexOfReview===nodes.length - 1) {
+        setProperty(nodes[0]);
+      } else {
+        setProperty(nodes[++indexOfReview]);
+      }
+
+    }, 7000)
+  });
 
   return(
     <ReviewsSection>
-      <ReviewSlider quantity={nodes.length}>
+      <ReviewsSlider>
+        <ReviewsSliderWrapper style={{'transform': `translateX(-${nodes.indexOf(property)*(100/nodes.length)}%)`}}>
         {nodes.map(({childImageSharp: {fixed}}, index) => {
           let name = "";
           let content = "";
-
-          if(index !== 0) {
-            return null
-          }
 
           switch(index) {
             case 0: 
@@ -158,7 +261,7 @@ const Reviews = () => {
           }
 
           return (
-            <Review key={index}>
+            <Review key={index} className={index === nodes.indexOf(property) ? 'activeReview' : null}>
               <ReviewPersonWrapper>
                 <ReviewPersonImage fixed={fixed} />
                 <ReviewPersonName>{name}</ReviewPersonName>
@@ -173,7 +276,24 @@ const Reviews = () => {
             </Review>
           )
         })}
-      </ReviewSlider>
+
+        </ReviewsSliderWrapper>
+      </ReviewsSlider>
+      <DotsWrapper>
+          { nodes.map((node, index) => {
+
+            return (
+              <Dot 
+                className={index === nodes.indexOf(property) ? `activeDot` : null} 
+                onClick={() => {
+                  clearInterval(changeReview);
+                  setProperty(node)
+                }}
+              />
+            )
+
+          })}
+        </DotsWrapper>
     </ReviewsSection>
   )
 }

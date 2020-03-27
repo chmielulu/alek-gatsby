@@ -7,10 +7,7 @@ const backgroundQuery = graphql`
 {
     file(name: {eq: "reviews"}) {
         childImageSharp {
-          fluid(maxWidth: 1920, quality: 90, duotone: {
-            highlight: "#f93c40",
-            shadow: "#192550"
-          }) {
+          fluid(maxWidth: 1920, quality: 90) {
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
@@ -43,8 +40,6 @@ const ReviewsSection = styled(Section)`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-attachment: fixed; 
-  background-position: center; 
 
   @media (min-width: 2200px) {
     height: 800px;

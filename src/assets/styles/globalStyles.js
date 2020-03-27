@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     font-family: 'Montserrat';
+    overflow-x: hidden;
   }
 
   button {
