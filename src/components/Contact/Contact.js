@@ -5,6 +5,7 @@ import { Icon } from '@iconify/react';
 import sharpAlternateEmail from '@iconify/icons-ic/sharp-alternate-email';
 import phoneIcon from '@iconify/icons-jam/phone';
 import { FaFacebookMessenger } from 'react-icons/fa';
+import {graphql, useStaticQuery} from 'gatsby';
 
 const StyledSection = styled.section`
     padding: 80px 0;
@@ -207,24 +208,46 @@ const Submit = styled.input`
     }
 `;
 
-const Contact = () => (
-    <StyledSection id="contact">
-        <Headline>Kontakt</Headline>
-        <ContactWrapper  data-sal="fade" data-sal-easing="ease-out-back" data-sal-duration="300">
-            <ContactItem><StyledIconifyIcon icon={sharpAlternateEmail} /> kontakt@aleksandergadomski.pl</ContactItem>
-            <ContactItem> <StyledIconifyIcon icon={phoneIcon} /> +48 514 144 053</ContactItem>
-            <ContactItem><StyledMessengerIcon /> m.me/aleksander-gadomski</ContactItem>
-        </ContactWrapper>
-        <ContactFormWrapper>
-            <h3>Skontaktuj się ze mną</h3>
-            <ContactForm>
-                <SmallInput type="text" placeholder="Imię lub nazwa firmy" />
-                <SmallInput type="text"  placeholder="E-mail" />
-                <LargeInput placeholder="Proszę o kontakt"></LargeInput>
-                <Submit type="submit" value="Wyślij" />
-            </ContactForm>
-        </ContactFormWrapper>
-    </StyledSection>
-);
+const Contact = () => {
+    const data = useStaticQuery(contactQuery);
+
+    const email = data.datoCmsEMail.link;
+    const phone = data.datoCmsPhone.number;
+    const messenger = data.datoCmsMessenger.link;
+
+    return (
+        <StyledSection id="contact">
+            <Headline>Kontakt</Headline>
+            <ContactWrapper data-sal="fade" data-sal-easing="ease-out-back" data-sal-duration="300">
+                <ContactItem><StyledIconifyIcon icon={sharpAlternateEmail} /> {email}</ContactItem>
+                <ContactItem> <StyledIconifyIcon icon={phoneIcon} /> {phone}</ContactItem>
+                <ContactItem><StyledMessengerIcon /> {messenger}</ContactItem>
+            </ContactWrapper>
+            <ContactFormWrapper>
+                <h3>Skontaktuj się ze mną</h3>
+                <ContactForm>
+                    <SmallInput type="text" placeholder="Imię lub nazwa firmy" />
+                    <SmallInput type="text"  placeholder="E-mail" />
+                    <LargeInput placeholder="Proszę o kontakt"></LargeInput>
+                    <Submit type="submit" value="Wyślij" />
+                </ContactForm>
+             </ContactFormWrapper>
+        </StyledSection>
+    )
+};
+
+const contactQuery = graphql`
+{
+    datoCmsEMail {
+        link
+      }
+      datoCmsPhone {
+        number
+      }
+      datoCmsMessenger {
+        link
+      }
+}
+`;
 
 export default Contact;

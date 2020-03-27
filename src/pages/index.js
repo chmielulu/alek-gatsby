@@ -1,5 +1,6 @@
 import React from "react";
 import CookieConsent from "react-cookie-consent";
+import { graphql } from 'gatsby';
 
 import SEO from '../components/SEO/SEO';
 import Navigation from '../components/Navigation/Navigation';
@@ -14,16 +15,16 @@ import Contact from "../components/Contact/Contact";
 import Footer from "../components/Footer/Footer";
 import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
 
-const IndexPage = () => (
+const IndexPage = ({ data: {datoCmsSeo : {keyword, metaTag: {description, title, image: {fixed: {src}}}}} }) => (
   <>
     <SEO 
-      title="Aleksander Gadomski | Grafik komputerowy"
+      title={title}
 
-      description="Szukasz dobrego a zarazem taniego grafika komputerowego? Dobrze trafiłeś! Aleksander Gadomski zajmie się Twoim zleceniem już od zaraz! Wizualizacja 3D, grafika 3D, baner, tło, miniaturka, montaż wideo, animacje - to tylko niewielka część mojej oferty!"
+      description={description}
 
-      keywords="Grafik komputerowy, grafika 3D, grafika 2D, Blender, Wizualizacje, Wizualizacje 3D, banery, baner, tlo, tla, miniaturka, miniaturki"
+      keywords={keyword}
 
-      image="https://aleksandergadomski.pl/images/op_image.jpg"
+      image={src}
 
       url="https://aleksandergadomski.pl/"
     />
@@ -60,3 +61,20 @@ const IndexPage = () => (
 );
 
 export default IndexPage;
+
+export const query = graphql`
+{
+  datoCmsSeo {
+    keyword
+    metaTag {
+      description
+      title
+      image {
+        fixed (width: 1000, imgixParams: {auto: "compress"}){
+          src
+        }
+      }
+    }
+  }
+}
+`;

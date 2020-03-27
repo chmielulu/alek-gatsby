@@ -183,7 +183,9 @@ const SocialText = styled.span`
 
 
 const AboutMe = () => {
-    const {file: {childImageSharp: {fluid}}} = useStaticQuery(photoQuery);
+    const data = useStaticQuery(photoQuery);
+    const {allDatoCmsAboutMe: {nodes}} = data;
+    const {datoCmsMessenger: {link}} = data;
 
     return (
         <StyledSection id="aboutMe">
@@ -193,20 +195,21 @@ const AboutMe = () => {
                 initiallyVisible={true} animateOnce={true}>
                 <PhotoWrapper>
                    <RedCircle />
-                   <Photo fluid={fluid} />
+                   <Photo fluid={nodes[0].image.fluid} />
                 </PhotoWrapper>
                 </ScrollAnimation>
                 <ScrollAnimation  animateIn='wobble'
                 initiallyVisible={true} animateOnce={true}>
                 <ContentWrapper>
-                    <ContentHeadline>Aleksander Gadomski</ContentHeadline>
+                    <ContentHeadline>{nodes[0].name}</ContentHeadline>
                     <ContentParagraphsWrapper>
-                        <ContentParagraph>Po latach tworzenia różnych projektów nie widzę już normalnego świata. Wszędzie widzę źródła światła, shadery, vertexy i poligony. </ContentParagraph>
-                        <ContentParagraph>Dziś wpada mi w ręce ciekawe zdjęcie, a jutro staram się je odwzorować w programie. </ContentParagraph>
-                        <ContentParagraph>Każdy liść, stara ceglana ściana lub moje porysowane stare okulary są dla mnie referencją. </ContentParagraph>
-                        <ContentParagraph>I przyznam, że uwielbiam to robić! </ContentParagraph>
+                        {
+                            nodes[0].description.map(({paragraph, id}, index) => (
+                               <ContentParagraph key={id}>{paragraph}</ContentParagraph> 
+                            ))
+                        }
                     </ContentParagraphsWrapper>
-                    <SocialWrapper href="https://m.me/aleksander-gadomski" target="_blank" rel="noopener noreferrer">
+                    <SocialWrapper href={`https://${link}`} target="_blank" rel="noopener noreferrer">
                         <SocialIcon></SocialIcon>
                         <SocialText>Skontaktuj się ze mną!</SocialText>
                     </SocialWrapper>
@@ -219,13 +222,26 @@ const AboutMe = () => {
 
 const photoQuery = graphql`
 {
-  file(name: {eq: "myphoto"}) {
-    childImageSharp {
-      fluid(maxWidth: 415, maxHeight: 415, quality: 80) {
-        ...GatsbyImageSharpFluid_withWebp_noBase64
+    allDatoCmsAboutMe {
+        nodes {
+          name
+          image {
+            fluid(maxWidth: 415, maxHeight: 415, imgixParams: {auto: "compress"}) {
+                ...GatsbyDatoCmsFluid_tracedSVG
+            }
+          }
+          description {
+            ... on DatoCmsDescription {
+              id
+              paragraph
+            }
+          }
+        }
       }
-    }
-  }
+
+      datoCmsMessenger {
+        link
+      }
 }
 `;
 

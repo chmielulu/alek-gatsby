@@ -9,11 +9,14 @@ import bxsQuoteAltRight from '@iconify/icons-bx/bxs-quote-alt-right';
 
 const personsPhotoQuery = graphql`
 {
-  allFile(filter: {name: {regex: "/person/"}}) {
+  allDatoCmsReview {
     nodes {
-      childImageSharp {
-        fixed(width: 140, height: 140, quality: 90) {
-          ...GatsbyImageSharpFixed_withWebp_noBase64
+      name
+      id
+      quote
+      image {
+        fixed(width: 140, height: 140, imgixParams: {auto: "compress"}) {
+          ...GatsbyDatoCmsFixed_tracedSVG
         }
       }
     }
@@ -208,7 +211,7 @@ const QuoteRight = styled(StyledIcon)`
 `;
 
 const Reviews = () => {
-  const {allFile: {nodes}} = useStaticQuery(personsPhotoQuery);
+  const {allDatoCmsReview: {nodes}} = useStaticQuery(personsPhotoQuery);
   const [property, setProperty] = useState(nodes[0]);
   
   let changeReview;
@@ -216,7 +219,7 @@ const Reviews = () => {
   useEffect(() => {
     changeReview = setTimeout(() => {
 
-      let indexOfReview = nodes.indexOf(property)
+      let indexOfReview = nodes.indexOf(property);
       
       if(indexOfReview===nodes.length - 1) {
         setProperty(nodes[0]);
@@ -231,37 +234,9 @@ const Reviews = () => {
     <ReviewsSection>
       <ReviewsSlider>
         <ReviewsSliderWrapper style={{'transform': `translateX(-${nodes.indexOf(property)*(100/nodes.length)}%)`}}>
-        {nodes.map(({childImageSharp: {fixed}}, index) => {
-          let name = "";
-          let content = "";
-
-          switch(index) {
-            case 0: 
-              name = "Tomasz Lach";
-              content = "Aleksander Gadomski pomagał mi w projekcie jako konsultant do spraw animacji 3D.  Wykazal się zaangażowaniem i wiedzą które  pomogły w realizacji zadania i znacznie ją przyśpieszyły. Polecam go jako zawsze chętnego do pomocy i skupionego na potrzebach klienta."
-            break;
-
-            case 1:
-              name = "Adrian Werle";
-              content = "Bardzo dobra robota. Profesjonalne podejście do klienta. Przyzwoita cena, praca na czas. Jak najbardziej polecam współpracę."
-            break;
-
-            case 2:
-              name = "Rafał Kalinowski";
-              content = "Alek to świetny grafik oraz wizualizator wnętrz! Z pewnością wrócę do współpracy z nim w najbliższym czasie, polecam!"
-            break;
-
-            case 3:
-              name = "Tetiana Paruzel";
-              content = "Alek jest jednym z niewielu konkretnych grafików. Dopracowuje nawet najmniejszy szczegół dla jak najlepszego efektu. Współpraca z nim to sama przyjemność, polecam!";
-            break;
-
-            default:
-              throw new Error("Nie ma takiej osoby w bazie danych!");
-          }
-
+        {nodes.map(({name, id, quote, image: {fixed}}, index) => {
           return (
-            <Review key={index} className={index === nodes.indexOf(property) ? 'activeReview' : null}>
+            <Review key={id} className={index === nodes.indexOf(property) ? 'activeReview' : null}>
               <ReviewPersonWrapper>
                 <ReviewPersonImage fixed={fixed} />
                 <ReviewPersonName>{name}</ReviewPersonName>
@@ -269,7 +244,7 @@ const Reviews = () => {
               <ReviewContentWrapper>
                 <QuoteLeft icon={bxsQuoteAltLeft} />
                 <ReviewContentParagraph>
-                  {content}
+                  {quote}
                 </ReviewContentParagraph>
                 <QuoteRight icon={bxsQuoteAltRight} />
               </ReviewContentWrapper>
@@ -281,9 +256,9 @@ const Reviews = () => {
       </ReviewsSlider>
       <DotsWrapper>
           { nodes.map((node, index) => {
-
             return (
               <Dot 
+                key={`dot-${index}`}
                 className={index === nodes.indexOf(property) ? `activeDot` : null} 
                 onClick={() => {
                   clearInterval(changeReview);

@@ -5,10 +5,12 @@ import styled from 'styled-components';
 
 const backgroundQuery = graphql`
 {
-    file(name: {eq: "reviews"}) {
-        childImageSharp {
-          fluid(maxWidth: 1920, quality: 90) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
+    datoCmsReviewsBackground {
+        image {
+          uploadId {
+            fluid(maxWidth: 1920, imgixParams: {auto: "compress"}) {
+              ...GatsbyDatoCmsFluid_noBase64
+            }
           }
         }
     }
@@ -17,7 +19,7 @@ const backgroundQuery = graphql`
 
 
 const Section = ({className, children}) => {
-    const {file: {childImageSharp: {fluid}}} = useStaticQuery(backgroundQuery);
+    const {datoCmsReviewsBackground: {image: {uploadId: {fluid}}}} = useStaticQuery(backgroundQuery);
 
     return (
 

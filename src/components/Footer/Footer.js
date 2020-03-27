@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Icon } from '@iconify/react';
 import bxlInstagram from '@iconify/icons-bx/bxl-instagram';
 import bxlYoutube from '@iconify/icons-bx/bxl-youtube';
+import {graphql, useStaticQuery} from 'gatsby';
 
 const StyledFooter = styled.footer`
     padding: 80px 0 0;
@@ -111,18 +112,36 @@ const Author = styled.span`
     color: #fff;
 `;
 
-const Footer = () => (
+const Footer = () => {
+    const year = new Date().getFullYear();
+    const data = useStaticQuery(footerQuery);
+    const igLink = data.datoCmsInstagram.link;
+    const ytLink = data.datoCmsYoutube.link;
+    
+    return (
     <StyledFooter>
         <Copyright data-sal="fade" data-sal-duration="300" data-sal-easing="ease-out-back">
             <h4>Aleksander Gadomski</h4>
-            <p>2020 &copy; Wszelkie prawa zastrzeżone</p>
+            <p>{year} &copy; Wszelkie prawa zastrzeżone</p>
         </Copyright>
         <SocialMedia data-sal="fade" data-sal-duration="300" data-sal-easing="ease-out-back" data-sal-delay="200">
-            <a href="https://www.instagram.com/aleksandergadomski/" target="_blank" rel="noopener noreferrer"><Icon icon={bxlInstagram} /></a>
-            <a href="https://www.youtube.com/channel/UC1BSR4tO1VEizm4f71aTdKg" target="_blank" rel="noopener noreferrer"><Icon icon={bxlYoutube} /></a>
+            <a href={igLink} target="_blank" rel="noopener noreferrer"><Icon icon={bxlInstagram} /></a>
+            <a href={ytLink} target="_blank" rel="noopener noreferrer"><Icon icon={bxlYoutube} /></a>
         </SocialMedia>
         <Author>Designed with love by Chmielewski Jakub, my friend :)</Author>
     </StyledFooter>
-);
+    )
+};
+
+const footerQuery = graphql`
+{
+    datoCmsInstagram {
+        link
+      }
+      datoCmsYoutube {
+        link
+      }
+}
+`;
 
 export default Footer;

@@ -175,11 +175,11 @@ const Navigation = () => {
                     {navigationItems.map(({link, to, description}, index) => {
                         if(link) {
                             return (
-                                <NavigationListItem key={index}><StyledLink to={to}><button>{description}</button></StyledLink></NavigationListItem>
+                                <NavigationListItem key={`navItem-${index}`}><StyledLink to={to}><button>{description}</button></StyledLink></NavigationListItem>
                             )
                         } else {
                             return (
-                                <NavigationListItem onClick={() => scrollTo(to)}><button>{description}</button></NavigationListItem>
+                                <NavigationListItem key={`navItem-${index}`} onClick={() => scrollTo(to)}><button>{description}</button></NavigationListItem>
                             )
                         }
                     })}

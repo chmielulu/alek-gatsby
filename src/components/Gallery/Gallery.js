@@ -4,18 +4,13 @@ import { useStaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
-import {isWebpSupported} from 'react-image-webp/dist/utils';
 
 const GalleryWrapper = styled.div`
     margin: 50px auto 0 auto;
     width: 90%;
     max-width: 1920px;
-    column-count: 3;
-    column-gap: .5em;
-
-    @media (max-width: 1200px) {
-        column-count: 2;
-    }
+    column-count: 2;
+    column-gap: 1em;
 
     @media (max-width: 800px) {
         column-count: 1;
@@ -24,22 +19,21 @@ const GalleryWrapper = styled.div`
 
 const GalleryItem = styled.div`
   display: inline-block;
-  margin: 0 0 .5em;
+  margin: 0 0 1em;
   width: 100%;
   cursor: pointer;
 `;
 
 const imagesQuery = graphql`
 {
-    allFile(filter: {name: {regex: "/image/"}}) {
-    nodes {
-        childImageSharp {
-            fluid(quality: 100) {
-                ...GatsbyImageSharpFluid_withWebp_noBase64
+    allDatoCmsGallery {
+        nodes {
+          image {
+            fluid (imgixParams: {auto: "compress"}) {
+              ...GatsbyDatoCmsFluid_tracedSVG
             }
-            id
+          }
         }
-    }
     }
 }   
 `;
@@ -47,14 +41,15 @@ const imagesQuery = graphql`
 const images = [];
 
 const Gallery = () => {
-    const {allFile: {nodes}} = useStaticQuery(imagesQuery);
+    const {allDatoCmsGallery: {nodes}} = useStaticQuery(imagesQuery);
     const [photoIndex, setPhotoIndex] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
 
+
     return (
         <GalleryWrapper>
-        {nodes.map(({childImageSharp: {fluid}}, index) => {
-            isWebpSupported ? images[index] = fluid.srcWebp : images[index] = fluid.src;                   
+        {nodes.map(({image: {fluid}}, index) => {
+            images[index] = fluid.src;  
 
             return(
                 <GalleryItem
