@@ -7,10 +7,8 @@ const backgroundQuery = graphql`
 {
     datoCmsReviewsBackground {
         image {
-          uploadId {
-            fluid(maxWidth: 1920, imgixParams: {auto: "compress"}) {
-              ...GatsbyDatoCmsFluid_noBase64
-            }
+          fluid(maxWidth: 1920, imgixParams: {auto: "compress"}) {
+            ...GatsbyDatoCmsFluid_noBase64
           }
         }
     }
@@ -19,7 +17,7 @@ const backgroundQuery = graphql`
 
 
 const Section = ({className, children}) => {
-    const {datoCmsReviewsBackground: {image: {uploadId: {fluid}}}} = useStaticQuery(backgroundQuery);
+    const {datoCmsReviewsBackground: {image: {fluid}}} = useStaticQuery(backgroundQuery);
 
     return (
 

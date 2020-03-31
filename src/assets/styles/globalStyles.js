@@ -4,6 +4,7 @@ const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
+    font-family: 'Montserrat';
   }
 
   body {
@@ -15,7 +16,6 @@ const GlobalStyle = createGlobalStyle`
   button {
     padding: 0;
     cursor: pointer;
-    font-family: 'Montserrat';
   }
   
   p {

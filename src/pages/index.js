@@ -48,13 +48,14 @@ const IndexPage = ({ data: {datoCmsSeo : {keyword, metaTag: {description, title,
     location="bottom"
     buttonText="OK"
     cookieName="cookiesInfo"
-    style={{ background: "#2a2a2a" }}
+    style={{ background: "#2a2a2a"}}
     buttonStyle={{ background: "#f93c40", color: "#fff", fontSize: "13px" }}
     expires={150}
     acceptOnScroll={true}
     acceptOnScrollPercentage={5}
+    debug={true}
     >
-    Ta strona korzysta z ciasteczek aby świadczyć usługi na najwyższym poziomie. Dalsze korzystanie ze strony oznacza, że zgadzasz się na ich użycie.{" "}
+    Ta strona korzysta z ciasteczek aby świadczyć usługi na najwyższym poziomie. Dalsze korzystanie ze strony oznacza, że zgadzasz się na ich użycie. <a href="https://skrypt-cookies.pl/czym-sa-ciasteczka" style={{color: "#bbb", textDecoration: "none", fontSize: "0.8rem", marginLeft: "5px"}} target="_blank">Więcej informacji</a>{" "}
     </CookieConsent>
     <ScrollToTop />
   </>

@@ -6,7 +6,8 @@ import sharpAlternateEmail from '@iconify/icons-ic/sharp-alternate-email';
 import phoneIcon from '@iconify/icons-jam/phone';
 import { FaFacebookMessenger } from 'react-icons/fa';
 import {graphql, useStaticQuery} from 'gatsby';
-
+import { Formik } from 'formik';
+ 
 const StyledSection = styled.section`
     padding: 80px 0;
     position: relative;
@@ -152,7 +153,6 @@ const LargeInput = styled.textarea`
     height: 130px;
     padding: 10px;
     display: block;
-    font-family: 'SF Compact';
     resize: none;
     transition: 0.2s;
     font-size: 0.8rem;
@@ -188,7 +188,6 @@ const Submit = styled.input`
     background: #f93c40;
     border: none;
     color: #fff;
-    font-family: 'SF Compact';
     font-weight: 400;
     padding: 14px 35px;
     border-radius: 40px;
@@ -223,15 +222,35 @@ const Contact = () => {
                 <ContactItem> <StyledIconifyIcon icon={phoneIcon} /> {phone}</ContactItem>
                 <ContactItem><StyledMessengerIcon /> {messenger}</ContactItem>
             </ContactWrapper>
+
             <ContactFormWrapper>
-                <h3>Skontaktuj się ze mną</h3>
-                <ContactForm>
-                    <SmallInput type="text" placeholder="Imię lub nazwa firmy" />
-                    <SmallInput type="text"  placeholder="E-mail" />
-                    <LargeInput placeholder="Proszę o kontakt"></LargeInput>
-                    <Submit type="submit" value="Wyślij" />
-                </ContactForm>
-             </ContactFormWrapper>
+
+            <h3>Skontaktuj się ze mną</h3>
+            <ContactForm action="https://formspree.io/xbjargvj" method="POST">
+                <SmallInput 
+                type="text" 
+                name="name" 
+                placeholder="Imię lub nazwa firmy" 
+                required
+                />
+
+                <SmallInput 
+                type="email" 
+                name="_replyto" 
+                placeholder="E-mail" 
+                required
+                />
+                
+                <LargeInput 
+                placeholder="Proszę o kontakt"
+                name="message"
+                required
+                >
+                </LargeInput>
+
+                <Submit type="submit" value="Wyślij" />
+            </ContactForm>
+        </ContactFormWrapper>
         </StyledSection>
     )
 };
