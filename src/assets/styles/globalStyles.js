@@ -11,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-family: 'Montserrat';
     overflow-x: hidden;
+    max-width: 100vw;
   }
 
   button {
