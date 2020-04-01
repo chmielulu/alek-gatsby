@@ -14,6 +14,12 @@ const GlobalStyle = createGlobalStyle`
     max-width: 100vw;
   }
 
+  input, textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
   button {
     padding: 0;
     cursor: pointer;
