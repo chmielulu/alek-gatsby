@@ -41,6 +41,8 @@ const SEO = ({ title, description, keywords, image, url }) => {
             }
           })
         }
+
+        <meta name="google-site-verification" content="V2oB7WtNeabsNMCGx1kywlHcjfpR0jtWtCVqtkPz_ao" />
     </Helmet>
   )
 }
