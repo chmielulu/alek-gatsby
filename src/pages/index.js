@@ -53,7 +53,6 @@ const IndexPage = ({ data: {datoCmsSeo : {keyword, metaTag: {description, title,
     expires={150}
     acceptOnScroll={true}
     acceptOnScrollPercentage={5}
-    debug={true}
     >
     Ta strona korzysta z ciasteczek aby świadczyć usługi na najwyższym poziomie. Dalsze korzystanie ze strony oznacza, że zgadzasz się na ich użycie. <a href="https://skrypt-cookies.pl/czym-sa-ciasteczka" style={{color: "#bbb", textDecoration: "none", fontSize: "0.8rem", marginLeft: "5px"}} target="_blank">Więcej informacji</a>{" "}
     </CookieConsent>

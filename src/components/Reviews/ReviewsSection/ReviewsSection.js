@@ -40,6 +40,7 @@ const ReviewsSection = styled(Section)`
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 
   @media (min-width: 2200px) {
     height: 800px;
