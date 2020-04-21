@@ -56,6 +56,13 @@ module.exports = {
       options: {
         apiToken: process.env.API_DATO_CMS
       }
-    }
+    }, 
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.TRACKING_ID,
+        head: true,
+      },
+    },
   ],
 }
