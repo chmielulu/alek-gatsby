@@ -15,7 +15,7 @@ import Contact from "../components/Contact/Contact";
 import Footer from "../components/Footer/Footer";
 import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
 
-const IndexPage = ({ data: {datoCmsSeo : {keyword, metaTag: {description, title, image: {fixed: {src}}}}} }) => (
+const IndexPage = ({ data: {datoCmsSeo : {keyword, metaTag: {description, title, image: {url}}}} }) => (
   <>
     <SEO 
       title={title}
@@ -24,7 +24,7 @@ const IndexPage = ({ data: {datoCmsSeo : {keyword, metaTag: {description, title,
 
       keywords={keyword}
 
-      image={src}
+      image={url}
 
       url="https://aleksandergadomski.pl/"
     />
@@ -70,9 +70,7 @@ export const query = graphql`
       description
       title
       image {
-        fixed (width: 1000, imgixParams: {auto: "compress"}){
-          src
-        }
+        url
       }
     }
   }
