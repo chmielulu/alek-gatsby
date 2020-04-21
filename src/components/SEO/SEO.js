@@ -13,7 +13,7 @@ const SEO = ({ title, description, keywords, image, url }) => {
         <meta property="og:url" content={url} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={image} />
+        <meta property="og:image" content="https://www.datocms-assets.com/24857/1585339966-opimage.jpg" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={image} />
