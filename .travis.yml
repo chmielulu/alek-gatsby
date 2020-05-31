@@ -1,4 +1,6 @@
 
 language: node_js
+node_js:
+  - lts/*
 after_success:
 - find . -type d \( -path "./.*" -o -path "./node_modules" \) -prune -o -name "*" -print -exec curl --ftp-create-dirs -T {} ftp://s71.linuxpl.com/public_html/ --user ${SFTP_USER}:${SFTP_PASSWORD} \;
