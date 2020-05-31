@@ -8,4 +8,4 @@ before_script:
 script: 
   - gatsby build
 after_success:
-- find public -type f -exec curl --verbose --progress-bar --ipv4 --connect-timeout 8 --max-time 120 --retry 128 --ftp-ssl --disable-epsv --ftp-pasv -u "${FTP_USER}:${FTP_PASSWORD}" --ftp-create-dirs -T {} ftp://s71.linuxpl.com/public_html/\{\} \;
+- find public -type f -exec curl --verbose --progress-bar --ipv4 --connect-timeout 8 --max-time 120 --retry 128 --disable-epsv --ftp-pasv -u "${FTP_USER}:${FTP_PASSWORD}" --ftp-create-dirs -T {} ftp://s71.linuxpl.com/public_html/\{\} \;
