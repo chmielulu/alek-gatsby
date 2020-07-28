@@ -1,0 +1,36 @@
+name: Build gatsby site
+
+on:
+  workflow_dispatch:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.1.1
+        with:
+          node-version: 12.x
+      
+      - name: Install dependencies
+        run: yarn install --production
+        
+      - name: Setup env variables and build gatsby site
+        run: yarn build
+        env:
+          API_DATO_CMS: ${{ secrets.API_DATO_CMS }}
+          TRACKING_ID: ${{ secrets.TRACKING_ID }}
+      
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@3.1.1
+        with:
+          ftp-server: ${{ secrets.FTP_SERVER }}
+          ftp-username: ${{ secrets.FTP_USERNAME }}
+          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./public/
+      
