@@ -61,8 +61,16 @@ jobs:
           ftp-password: ${{ secrets.FTP_PASSWORD }}
           local-dir: public
           git-ftp-args: --all
+
+      - name: DatoCMS notifications (success)
+        if: ${{ failure() }}
+        run: |
+          curl -n -X POST https://webhooks.datocms.com/bd48c298f03e6769bc47/deploy-results \
+            -H 'Content-Type: application/json' \
+            -d '{ "status": "error" }'
       
-      - name: DatoCMS notifications
+      - name: DatoCMS notifications (success)
+        if: ${{ success() }}
         run: |
           curl -n -X POST https://webhooks.datocms.com/bd48c298f03e6769bc47/deploy-results \
           -H 'Content-Type: application/json' \
