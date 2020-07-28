@@ -52,13 +52,13 @@ jobs:
         env:
           API_DATO_CMS: ${{ secrets.API_DATO_CMS }}
           TRACKING_ID: ${{ secrets.TRACKING_ID }}
-      
-      - name: Upload ftp
-        uses: sebastianpopp/ftp-action@releases/v2
+          
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@3.1.1
         with:
-          host: ${{ secrets.FTP_SERVER }}
-          user: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          localDir: "public"
-          remoteDir: "public_html"
+          ftp-server: ${{ secrets.FTP_SERVER }}
+          ftp-username: ${{ secrets.FTP_USER }}
+          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: public
+          git-ftp-args: --insecure --all
       
