@@ -49,6 +49,9 @@ jobs:
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn install
         
+      - name: Clear Gatsby Cache
+      - run: yarn clean
+        
       - name: Setup env variables and build gatsby site
         run: yarn build
         env:
